@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User Stats{% endblock %}
+
+{% block body %}
+
+	{% include "user/nav.html.twig" %}
+
+    <h1 class='text-xl w-4/6 mx-auto text-center rounded-xl my-10 text-white bg-stone-600'>Statistiques de l'utilistateur "{{ email }}"</h1>
+    <div class='w-fit mx-auto'>
+        <p>Nombre de quizz faits : {{ quizzCount }}</p>
+        <p>Note moyenne générale : {{ averageNote }} / 10</p>
+    </div>
+    <div class='w-fit mx-auto my-10'>
+        <a href="{{ path('app_user_index') }}">Retour</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index{% endblock %}
+
+{% block body %}
+
+{% include "user/nav.html.twig" %}
+
+{% block categories %}
+    <div class="border w-1/6 h-screen absolute overflow-y-auto pb-2">
+    <h2 class="text-center text-lg p-2 bg-stone-600 rounded-lg m-2 text-white">Catégories</h2>
+        {% for category in categories %}
+            <a href="{{ path('app_quizz', {'id': category.id}) }}"><p class='text-xl p-5 text-center hover:bg-stone-600 hover:text-white'>{{category.name}}</p></a>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
+{% endblock %}

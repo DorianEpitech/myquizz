@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quizz Stats{% endblock %}
+
+{% block body %}
+
+	{% include "user/nav.html.twig" %}
+
+    <h2 class="text-center text-lg p-2 bg-stone-600 rounded-lg m-2 text-white">Catégories</h2>
+    <div class="border flex flex-wrap justify-center">
+            {% for categorie in resultatQuizz %}
+                <a href="{{ path('app_stats_categorie', {'id': categorie.id}) }}">
+                    <p class='text-xl p-5 text-center'>{{categorie.name|trim}}</p>
+                </a>
+            {% endfor %}
+    </div>
+    <div class='flex justify-center gap-8 my-10'>
+        <a href="{{ path('app_new_categorie') }}">Créer une nouvelle catégorie</a>
+        <a href="{{ path('app_new_quizz') }}">Créer un nouveau Quizz</a>
+    </div>
+{% endblock %}

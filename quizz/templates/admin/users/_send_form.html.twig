@@ -1,0 +1,9 @@
+{{ form_start(form) }}
+    <div class='flex gap-8 justify-center my-10'>
+        {{ form_label(form.emailChoice) }}
+        {{ form_widget(form.emailChoice) }}
+    </div>
+    <div class='border p-4 mx-auto my-4 w-fit'>
+        <button class="btn">{{ button_label|default('Envoyer') }}</button>
+    </div>
+{{ form_end(form) }}

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Quizz{% endblock %}
+
+{% block body %}
+
+{% include "user/nav.html.twig" %}
+
+    <div class='w-fit p-2 my-4 mx-auto border hover:bg-gray-200'>
+        <a href="{{ path('app_index') }}">Retourner à l'accueil</a>
+    </div>
+    {{ form_start(form) }}
+    <div class='flex flex-col mt-10'>
+        <p class='text-xl w-4/6 mx-auto text-center rounded-xl my-10 text-white bg-stone-600'>{{ form_label(form.id_categorie) }}</p>
+        {{ form_widget(form.id_categorie) }}
+    </div>
+    <div class='flex flex-col mt-10'>
+        <p class='text-xl w-4/6 mx-auto text-center rounded-xl my-10 text-white bg-stone-600'>{{ form_label(form.name) }}</p>
+        {{ form_widget(form.name) }}
+    </div>
+    <div class='flex flex-col'>
+        {% for i in 1..10 %}
+            <div>
+                <p class='text-xl w-4/6 mx-auto text-center rounded-xl my-10 text-white bg-stone-600'>{{ form_label(form['question_' ~ i]) }} </p>
+                {{ form_widget(form['question_' ~ i]) }}
+            </div>
+            <div>
+                <p class='w-fit mx-auto'>{{ form_label(form['reponse_' ~ i ~ '_1']) }}</p>
+                {{ form_widget(form['reponse_' ~ i ~ '_1']) }}
+                <p class='w-fit mx-auto'>{{ form_label(form['reponse_' ~ i ~ '_2']) }}</p>
+                {{ form_widget(form['reponse_' ~ i ~ '_2']) }}
+                <p class='w-fit mx-auto'>{{ form_label(form['reponse_' ~ i ~ '_3']) }}</p>
+                {{ form_widget(form['reponse_' ~ i ~ '_3']) }}
+            </div>
+            <div>
+            <p class='text-xl w-4/6 mx-auto text-center rounded-xl my-10 text-white bg-stone-600'>{{ form_label(form['reponse_expected_' ~ i]) }}</p>
+            {{ form_widget(form['reponse_expected_' ~ i]) }}
+            </div>
+        {% endfor %}
+    </div>
+    <div class='w-fit p-2 my-4 mx-auto text-white bg-stone-600 rounded-xl hover:bg-stone-300 hover:text-gray-600'>
+        <button>{{ button_label|default('Sauvegarder') }}</button>
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Quizz{% endblock %}
+
+{% block body %}
+
+	{% include "user/nav.html.twig" %}
+
+    <div class='w-fit p-2 my-4 mx-auto border'>
+        <a href="{{ path('app_display_categories') }}">Retour</a>
+    </div>
+    {{ include('admin/quizzs/_new_form.html.twig') }}
+
+{% endblock %}

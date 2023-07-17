@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Quizz{% endblock %}
+
+{% block body %}
+
+{% include "user/nav.html.twig" %}
+
+{{ form_start(form) }}
+    <div class='flex flex-col mt-10'>
+        <p class='w-fit mx-auto'>{{ form_label(form.newEmail) }}</p>
+        {{ form_widget(form.newEmail) }}
+    </div>
+    <div class='w-fit px-4 p-2 my-4 rounded mx-auto text-white bg-stone-600 hover:bg-stone-300 hover:text-gray-600'>
+        <button class="btn">{{ button_label|default('Modifier') }}</button>
+    </div>
+{{ form_end(form) }}
+
+    <div class='border p-4 mx-auto my-4 w-fit rounded-xl hover:bg-gray-200'>
+        <a href="{{ path('app_index') }}">Retour</a>
+    </div>
+{% endblock %}

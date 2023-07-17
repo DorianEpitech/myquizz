@@ -1,0 +1,9 @@
+{{ form_start(form) }}
+    <div class='flex flex-col mt-10'>
+        <p class='w-fit mx-auto'>{{ form_label(form.name) }}</p>
+        {{ form_widget(form.name) }}
+    </div>
+    <div class='w-fit p-2 my-4 mx-auto'>
+        <button class="btn">{{ button_label|default('Sauvegarder') }}</button>
+    </div>
+{{ form_end(form) }}

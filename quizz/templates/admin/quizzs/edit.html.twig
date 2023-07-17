@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer un Quizz{% endblock %}
+
+{% block body %}
+
+	{% include "user/nav.html.twig" %}
+
+    {{ include('admin/quizzs/_new_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a href="{{ path('app_display_categories') }}">Retour</a>
+{% endblock %}

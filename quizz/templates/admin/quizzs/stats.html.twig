@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorie stats{% endblock %}
+
+{% block body %}
+
+	{% include "user/nav.html.twig" %}
+
+    <h1 class='my-10 w-fit mx-auto text-xl text-white bg-stone-600 px-4 rounded-xl'>Stats du quizz "{{ quizz.name }}"</h1>
+    <div class='flex flex-col w-fit mx-auto'>
+        <p>Nombre de quizz faits : {{ quizzCount }}</p>
+        <p>Note moyenne générale : {{ average }} / 10</p>
+        <a href="{{ path('app_edit_quizz', {'id': quizz.id}) }}">Editer ce Quizz</a>
+        {{ include('admin/quizzs/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

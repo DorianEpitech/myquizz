@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Historique
+{% endblock %}
+
+
+{% block body %}
+
+	{% include "user/nav.html.twig" %}
+  
+	<table class="border w-5/6 mx-auto mt-10">
+		<thead>
+			<tr>
+				<th class='text-xl'>Categorie</th>
+				<th class='text-xl'>Quizz</th>
+				<th class='text-xl'>Résultat</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% if app.user %}
+				{% for i, item in history %}
+					<tr>
+						<td class='text-center'>{{ categorie[i] }}</td>
+						<td class='text-center'>{{ item.getIdQuizz().getName() }}</td>
+						<td class='text-center'>{{ item.getResult() }}/10</td>
+					</tr>
+				{% endfor %}
+			{% else %}
+				{% for item in app.session.get('history', []) %}
+					<tr>
+						<td class='text-center'>{{ item.quizzCategorie }}</td>
+						<td class='text-center'>{{ item.quizzName }}</td>
+						<td class='text-center'>{{ item.score }}/10</td>
+					</tr>
+				{% endfor %}
+			{% endif %}
+		</tbody>
+	</table>
+{% endblock %}

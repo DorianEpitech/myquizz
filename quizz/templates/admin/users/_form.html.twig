@@ -1,0 +1,19 @@
+{{ form_start(form) }}
+    <div class='flex flex-col mt-10'>
+        <p class='w-fit mx-auto'>{{ form_label(form.email) }}</p>
+        {{ form_widget(form.email) }}
+    </div>
+    <div class='flex flex-col'>
+        <p class='w-fit mx-auto'>{{ form_label(form.password) }}</p>
+        {{ form_widget(form.password) }}
+    </div>
+    <div class='flex flex-col'>
+        <p class='w-fit mx-auto'>{{ form_label(form.roles) }}</p>
+        <p class='w-fit mx-auto '>{{ form_widget(form.roles) }}</p>
+    </div>
+    <div class='flex flex-col'>
+        <p class='w-fit mx-auto'>{{ form_label(form.isVerified) }}</p>
+        <p class='w-fit mx-auto'>{{ form_widget(form.isVerified) }}</p>
+    </div>
+    <button class="w-full my-2">{{ button_label|default('Sauvegarder') }}</button>
+{{ form_end(form) }}

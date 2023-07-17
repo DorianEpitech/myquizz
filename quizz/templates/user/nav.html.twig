@@ -1,0 +1,19 @@
+<div class='w-full bg-stone-600 flex justify-between p-4 text-white text-xl'>
+    <a href="{{ path('app_index') }}" class='p-2 rounded-xl border hover:bg-stone-700 hover:scale-105'>Accueil</a>
+    <div class='flex gap-8'>
+
+    <a href="{{ path('app_user_history') }}" class='p-2 rounded-xl border hover:bg-stone-700 hover:scale-105'>Historique</a>
+
+    {% if app.user %}
+        <a href="{{ path('app_user_profile') }}" class='p-2 rounded-xl border hover:bg-stone-700 hover:scale-105'>Profil</a>
+        <a href="{{ path('user_new_quizz') }}" class='p-2 rounded-xl border hover:bg-stone-700 hover:scale-105'>Creer un Quizz</a>
+        {% if app.user.roles[0] == "ROLE_ADMIN" %}
+            <a href="{{ path('app_user_index') }}" class='p-2 rounded-xl border hover:bg-stone-700 hover:scale-105'>Administration</a>
+        {% endif %}
+        <a href="{{ path('app_logout') }}" class='p-2 rounded-xl border hover:bg-stone-700 hover:scale-105'>Se déconnecter</a>
+    {% else %}
+        <a href="{{ path('app_login') }}" class='p-2 rounded-xl border hover:bg-stone-700 hover:scale-105'>Se connecter</a>
+        <a href="{{ path('app_register') }}" class='p-2 rounded-xl border hover:bg-stone-700 hover:scale-105'>S'enregistrer</a> 
+    {% endif %}
+    </div>
+</div>

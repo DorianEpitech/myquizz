@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block body %}
+
+	{% include "user/nav.html.twig" %}
+
+    {{ form_start(form) }}
+    <div class='flex flex-col mt-10'>
+        <p class='w-fit mx-auto'>{{ form_label(form.email) }}</p>
+        {{ form_widget(form.email) }}
+    </div>>
+    <div class='flex flex-col'>
+        <p class='w-fit mx-auto'>{{ form_label(form.roles) }}</p>
+        <p class='w-fit mx-auto '>{{ form_widget(form.roles) }}</p>
+    </div>
+    <div class='flex flex-col'>
+        <p class='w-fit mx-auto'>{{ form_label(form.isVerified) }}</p>
+        <p class='w-fit mx-auto'>{{ form_widget(form.isVerified) }}</p>
+    </div>
+    <button class="w-full my-2">{{ button_label|default('Sauvegarder') }}</button>
+{{ form_end(form) }}
+    <div class='flex gap-8 justify-center my-10'>
+        <a href="{{ path('app_user_index') }}">Retour</a>
+        {{ include('admin/users/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

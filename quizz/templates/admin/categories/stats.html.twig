@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorie stats{% endblock %}
+
+{% block body %}
+
+	{% include "user/nav.html.twig" %}
+
+    <h1 class='text-xl w-4/6 mx-auto text-center rounded-xl my-10 text-white bg-stone-600'>Stats de la catégorie "{{ categorie.name }}"</h1>
+    <div class='flex flex-col w-fit mx-auto'>
+        <p>Nombre de quizzs dans la catégorie : {{ quizzsCount }}</p>
+        <p>Nombre de quizzs effectués dans cette catégorie : {{ resultCount }}</p>
+        <p>Note moyenne de la catégorie : {{ average }}</p>
+    </div>
+    <div class='flex my-10 gap-8 justify-center'>
+        <a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">Modifier</a>
+        {{ include('admin/categories/_delete_form.html.twig') }}
+    </div>
+
+    <h1 class='text-center text-lg p-2 bg-stone-600 rounded-lg m-2 text-white'>Quizzs de la catégorie "{{ categorie.name }}"</h1>
+    {% for quizz in quizzs %}
+        <p class='text-xl w-fit mx-auto my-4'><a href="{{ path('app_stats_quizz', {'id': quizz.id}) }}">{{ quizz.name|trim }}</a></p>
+    {% endfor %}
+{% endblock %}

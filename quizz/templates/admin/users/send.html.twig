@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Email{% endblock %}
+
+{% block body %}
+
+	{% include "user/nav.html.twig" %}
+
+    {{ include('admin/users/_send_form.html.twig') }}
+    <div class='border p-4 mx-auto my-4 w-fit'>
+        <a href="{{ path('app_user_index') }}">Retour</a>
+    </div>
+{% endblock %}

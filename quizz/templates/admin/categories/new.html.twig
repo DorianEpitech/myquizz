@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Categorie{% endblock %}
+
+{% block body %}
+
+	{% include "user/nav.html.twig" %}
+
+    {{ include('admin/categories/_new_form.html.twig') }}
+
+    <div class='border p-4 mx-auto my-4 w-fit'>
+        <a href="{{ path('app_display_categories') }}">Retour</a>
+    </div>
+{% endblock %}

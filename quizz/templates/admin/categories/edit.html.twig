@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Categorie{% endblock %}
+
+{% block body %}
+
+	{% include "user/nav.html.twig" %}
+
+    {{ include('admin/categories/_new_form.html.twig', {'button_label': 'Modifier'}) }}
+    <div class='flex gap-8 justify-center my-10'>
+        <a href="{{ path('app_display_categories') }}">Retour</a>
+    </div>
+{% endblock %}

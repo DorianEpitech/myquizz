@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Resultat
+{% endblock %}
+
+
+{% block body %}
+
+	{% include "user/nav.html.twig" %}
+
+	<div class=''>
+
+		<p class='text-xl text-center w-4/6 mx-auto rounded-xl bg-stone-600 text-white my-2'>
+			Vous avez terminé le quizz !
+		</p>
+		<p class='text-lg text-center '>
+			Votre score final est de
+			{{ score }}
+			/ 10 !
+		</p>
+
+		{% if score == 10 %}
+			<p class='text-xl text-center'>Félicitations, tu sembles connaître parfaitement le sujet !</p>
+		{% elseif score >= 7 and score <= 9 %}
+			<p class='text-xl text-center'>Excellente maîtrise du sujet, essaie de nouveau si tu veux obtenir la note maximale !</p>
+		{% elseif score >= 4 and score <= 6 %}
+			<p class='text-xl text-center'>Tu as encore pas mal de choses à apprendre, n'hésite pas à retenter ta chance plus tard !</p>
+		{% elseif score >= 1 and score <= 3 %}
+			<p class='text-xl text-center'>Ça arrive même aux meilleurs, on ne peut pas tout connaître !</p>
+		{% else %}
+			<p class='text-xl text-center'>Bon après là...</p>
+		{% endif %}
+
+	</div>
+
+{% endblock %}
